@@ -1,4 +1,4 @@
 # inspired-mobile-api
-TypeScript
-Express JS
+TypeScript,
+Express JS,
 MongoDB
