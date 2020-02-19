@@ -3,11 +3,9 @@ import express, { Request, Response } from "express";
 import * as bodyParser from 'body-parser';
 import * as bookController from "./controllers/userController";
 
-// Our Express APP config
 const app = express();
 app.set("port", process.env.PORT || 3000);
 
-// API Endpoints
 app.get("/", (req: Request, res: Response) => res.send("hi"))
 
 app.use(bodyParser.json());

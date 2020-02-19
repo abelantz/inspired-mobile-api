@@ -24,7 +24,8 @@ export const UserSchema = new mongoose.Schema({
         required: 'Email address is required',
         match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
     },
-    birthday: {type:Date, required:true}
+    birthday: {type:String, required:true},
+    date_added: { type: Date, default: Date.now }
 })
 
 const User = mongoose.model('User', UserSchema);
