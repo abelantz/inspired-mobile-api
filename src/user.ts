@@ -1,6 +1,3 @@
-import * as mongodb from 'mongodb';
-// import mongoose = require("mongoose");
-
 var MongoClient = require('mongodb').MongoClient;
 
 const uri: string = 'mongodb://localhost:27017/inspired_db';
@@ -14,12 +11,12 @@ MongoClient.connect(uri, (err:any) =>{
     }
 })
 
-
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId;
-   
-export const UserSchema = new mongoose.Schema({
+
+    
+export const UserSchema = new Schema({
     id: {type:ObjectId, required:true},
     name: {type:String, required:true},
     email: {
