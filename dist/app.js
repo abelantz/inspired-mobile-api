@@ -11,12 +11,14 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
+var bodyParser = __importStar(require("body-parser"));
 var bookController = __importStar(require("./controllers/userController"));
 // Our Express APP config
 var app = express_1.default();
 app.set("port", process.env.PORT || 3000);
 // API Endpoints
 app.get("/", function (req, res) { return res.send("hi"); });
+app.use(bodyParser.json());
 // API Endpoints
 app.get("/users", bookController.allUsers);
 app.get("/user/:id", bookController.getUser);
