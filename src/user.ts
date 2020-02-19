@@ -1,8 +1,10 @@
-var MongoClient = require('mongodb').MongoClient;
 
-const uri: string = 'mongodb://localhost:27017/inspired_db';
+import mongoose = require("mongoose");
 
-MongoClient.connect(uri, (err:any) =>{
+
+const uri: string = 'mongodb://localhost:27017/local';
+
+mongoose.connect(uri, (err:any) =>{
     if(err){
         console.log(err.message)
     }
@@ -11,13 +13,8 @@ MongoClient.connect(uri, (err:any) =>{
     }
 })
 
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema,
-    ObjectId = Schema.ObjectId;
-
-    
-export const UserSchema = new Schema({
-    id: {type:ObjectId, required:true},
+   
+export const UserSchema = new mongoose.Schema({
     name: {type:String, required:true},
     email: {
         type: String,

@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var MongoClient = require('mongodb').MongoClient;
-var uri = 'mongodb://localhost:27017/inspired_db';
-MongoClient.connect(uri, function (err) {
+var mongoose = require("mongoose");
+var uri = 'mongodb://localhost:27017/local';
+mongoose.connect(uri, function (err) {
     if (err) {
         console.log(err.message);
     }
@@ -10,10 +10,7 @@ MongoClient.connect(uri, function (err) {
         console.log("Succesfully connected to MongoDb");
     }
 });
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema, ObjectId = Schema.ObjectId;
-exports.UserSchema = new Schema({
-    id: { type: ObjectId, required: true },
+exports.UserSchema = new mongoose.Schema({
     name: { type: String, required: true },
     email: {
         type: String,
